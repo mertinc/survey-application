@@ -18,7 +18,7 @@ var json = {
           type: "rating",
           name: "nps_score",
           title:
-            "How likely are you to recommend Groove to a friend or colleague?",
+            "How likely are you to recommend Uber to a friend or colleague?",
           isRequired: true,
           rateMin: 0,
           rateMax: 10,
@@ -70,7 +70,7 @@ function App() {
       if (data) {
         console.log("Success:", data);
         setSubmition(data);
-        alert((data));
+        alert("Your submit completed.");
       }
     })
     .catch((error) => {

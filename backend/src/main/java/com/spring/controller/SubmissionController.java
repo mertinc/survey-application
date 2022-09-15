@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.model.Submission;
+import com.spring.model.Topic;
 import com.spring.SubmissionRepo.*;
 
 @RestController
@@ -28,7 +29,9 @@ SubmissionRepo submissionRepo;
     public ResponseEntity<List<Submission>> getSubmissionsByTopicId(@PathVariable("topicId") int topicId){
         try {
             List<Submission> submissions = new ArrayList<Submission>();
-            submissionRepo.findAllByTopicId(topicId).forEach(submissions::add);
+            Topic topic = new Topic();
+            topic.setTopicId(topicId);
+            submissionRepo.findAllByTopicId(topic).forEach(submissions::add);
             if (submissions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

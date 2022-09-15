@@ -25,7 +25,7 @@ public class Submission implements Serializable{
     private String comment;
 
     @OneToOne
-    @JoinColumn(name="topicId")
+    @JoinColumn(name="topic_Id")
     private Topic topicId;
 
     public Submission(){
